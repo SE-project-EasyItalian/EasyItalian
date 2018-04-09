@@ -147,7 +147,7 @@ public class RecitePage extends Activity {
     private void createDatabase(){
         DaoOpt my = DaoOpt.Companion.getInstance();
         my.deleteAllData(this);
-        for(Integer i=0;i<8;i++){
+        for(Integer i=0;i<20;i++){
             Word insertWord = getWordFromXml(i);
             if(insertWord==null) break;
             my.insertData(this,insertWord);
