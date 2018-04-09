@@ -3,6 +3,7 @@
     package="eipro.se.tju.easyitalian">
 
     <application
+        android:name=".BaseApplication"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_main"
