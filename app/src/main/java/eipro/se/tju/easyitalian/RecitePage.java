@@ -35,7 +35,8 @@ public class RecitePage extends Activity {
         button_remember.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                // test , use this to init database
+                createDatabase();
             }
         });
         Button button_incognizance=findViewById(R.id.incognizance);
