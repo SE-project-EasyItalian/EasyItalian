@@ -129,4 +129,44 @@ class DaoOpt private constructor(){
 
         return builder?.where(WordDao.Properties.Id.eq(id))?.list()
     }
+    fun queryForAppearTime(context: Context?, id: Long): MutableList<Word>? {
+        val builder = GreenDaoManager.getInstance(context!!)?.getDaoSession(context)?.wordDao?.queryBuilder()
+        /**
+         * 返回当前AppearTime的数据集合,当然where(这里面可以有多组，做为条件);
+         * 这里build.list()；与where(WordForDBDao.Properties.AppearTime.eq(id)).list()结果是一样的；
+         * 在QueryBuilder类中list()方法return build().list();
+
+         */
+        // Query<word> build = builder.where(WordForDBDao.Properties.AppearTime.eq(id)).build();
+        // List<word> list = build.list();
+
+        return builder?.where(WordDao.Properties.AppearTime.eq(id))?.list()
+    }
+
+    fun queryForCorrectTime(context: Context?, id: Long): MutableList<Word>? {
+        val builder = GreenDaoManager.getInstance(context!!)?.getDaoSession(context)?.wordDao?.queryBuilder()
+        /**
+         * 返回当前CorrectTime的数据集合,当然where(这里面可以有多组，做为条件);
+         * 这里build.list()；与where(WordForDBDao.Properties.CorrectTime.eq(id)).list()结果是一样的；
+         * 在QueryBuilder类中list()方法return build().list();
+
+         */
+        // Query<word> build = builder.where(WordForDBDao.Properties.CorrectTime.eq(id)).build();
+        // List<word> list = build.list();
+
+        return builder?.where(WordDao.Properties.CorrectTime.eq(id))?.list()
+    }
+    fun queryForIncorrectTime(context: Context?, id: Long): MutableList<Word>? {
+        val builder = GreenDaoManager.getInstance(context!!)?.getDaoSession(context)?.wordDao?.queryBuilder()
+        /**
+         * 返回当前IncorrectTime的数据集合,当然where(这里面可以有多组，做为条件);
+         * 这里build.list()；与where(WordForDBDao.Properties.IncorrectTime.eq(id)).list()结果是一样的；
+         * 在QueryBuilder类中list()方法return build().list();
+
+         */
+        // Query<word> build = builder.where(WordForDBDao.Properties.IncorrectTime.eq(id)).build();
+        // List<word> list = build.list();
+
+        return builder?.where(WordDao.Properties.IncorrectTime.eq(id))?.list()
+    }
 }
