@@ -31,10 +31,20 @@ public class Word {
     @Property(nameInDb = "incorrectTime")
     private Integer incorrectTime;
 
-    @Generated(hash = 236107239)
+    @Property(nameInDb = "EFactor")
+    private Double EFactor;
+
+    @Property(nameInDb = "interval")
+    private Integer interval;
+    
+    @Property(nameInDb = "nextAppearTime")
+    private Integer nextAppearTime;
+
+    @Generated(hash = 1972991709)
     public Word(Long id, String word, String transform, String translation,
             String example, Integer appearTime, Integer correctTime,
-            Integer incorrectTime) {
+            Integer incorrectTime, Double EFactor, Integer interval,
+            Integer nextAppearTime) {
         this.id = id;
         this.word = word;
         this.transform = transform;
@@ -43,6 +53,9 @@ public class Word {
         this.appearTime = appearTime;
         this.correctTime = correctTime;
         this.incorrectTime = incorrectTime;
+        this.EFactor = EFactor;
+        this.interval = interval;
+        this.nextAppearTime = nextAppearTime;
     }
 
     @Generated(hash = 3342184)
@@ -111,6 +124,30 @@ public class Word {
 
     public void setIncorrectTime(Integer incorrectTime) {
         this.incorrectTime = incorrectTime;
+    }
+
+    public Double getEFactor() {
+        return this.EFactor;
+    }
+
+    public void setEFactor(Double EFactor) {
+        this.EFactor = EFactor;
+    }
+
+    public Integer getInterval() {
+        return this.interval;
+    }
+
+    public void setInterval(Integer interval) {
+        this.interval = interval;
+    }
+
+    public Integer getNextAppearTime() {
+        return this.nextAppearTime;
+    }
+
+    public void setNextAppearTime(Integer nextAppearTime) {
+        this.nextAppearTime = nextAppearTime;
     }
     
 }

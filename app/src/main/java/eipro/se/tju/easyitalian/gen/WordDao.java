@@ -32,6 +32,9 @@ public class WordDao extends AbstractDao<Word, Long> {
         public final static Property AppearTime = new Property(5, Integer.class, "appearTime", false, "appearTime");
         public final static Property CorrectTime = new Property(6, Integer.class, "correctTime", false, "correctTime");
         public final static Property IncorrectTime = new Property(7, Integer.class, "incorrectTime", false, "incorrectTime");
+        public final static Property EFactor = new Property(8, Double.class, "EFactor", false, "EFactor");
+        public final static Property Interval = new Property(9, Integer.class, "interval", false, "interval");
+        public final static Property NextAppearTime = new Property(10, Integer.class, "nextAppearTime", false, "nextAppearTime");
     }
 
 
@@ -54,7 +57,10 @@ public class WordDao extends AbstractDao<Word, Long> {
                 "\"example\" TEXT," + // 4: example
                 "\"appearTime\" INTEGER," + // 5: appearTime
                 "\"correctTime\" INTEGER," + // 6: correctTime
-                "\"incorrectTime\" INTEGER);"); // 7: incorrectTime
+                "\"incorrectTime\" INTEGER," + // 7: incorrectTime
+                "\"EFactor\" REAL," + // 8: EFactor
+                "\"interval\" INTEGER," + // 9: interval
+                "\"nextAppearTime\" INTEGER);"); // 10: nextAppearTime
     }
 
     /** Drops the underlying database table. */
@@ -106,6 +112,21 @@ public class WordDao extends AbstractDao<Word, Long> {
         if (incorrectTime != null) {
             stmt.bindLong(8, incorrectTime);
         }
+ 
+        Double EFactor = entity.getEFactor();
+        if (EFactor != null) {
+            stmt.bindDouble(9, EFactor);
+        }
+ 
+        Integer interval = entity.getInterval();
+        if (interval != null) {
+            stmt.bindLong(10, interval);
+        }
+ 
+        Integer nextAppearTime = entity.getNextAppearTime();
+        if (nextAppearTime != null) {
+            stmt.bindLong(11, nextAppearTime);
+        }
     }
 
     @Override
@@ -151,6 +172,21 @@ public class WordDao extends AbstractDao<Word, Long> {
         if (incorrectTime != null) {
             stmt.bindLong(8, incorrectTime);
         }
+ 
+        Double EFactor = entity.getEFactor();
+        if (EFactor != null) {
+            stmt.bindDouble(9, EFactor);
+        }
+ 
+        Integer interval = entity.getInterval();
+        if (interval != null) {
+            stmt.bindLong(10, interval);
+        }
+ 
+        Integer nextAppearTime = entity.getNextAppearTime();
+        if (nextAppearTime != null) {
+            stmt.bindLong(11, nextAppearTime);
+        }
     }
 
     @Override
@@ -168,7 +204,10 @@ public class WordDao extends AbstractDao<Word, Long> {
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // example
             cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5), // appearTime
             cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6), // correctTime
-            cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7) // incorrectTime
+            cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7), // incorrectTime
+            cursor.isNull(offset + 8) ? null : cursor.getDouble(offset + 8), // EFactor
+            cursor.isNull(offset + 9) ? null : cursor.getInt(offset + 9), // interval
+            cursor.isNull(offset + 10) ? null : cursor.getInt(offset + 10) // nextAppearTime
         );
         return entity;
     }
@@ -183,6 +222,9 @@ public class WordDao extends AbstractDao<Word, Long> {
         entity.setAppearTime(cursor.isNull(offset + 5) ? null : cursor.getInt(offset + 5));
         entity.setCorrectTime(cursor.isNull(offset + 6) ? null : cursor.getInt(offset + 6));
         entity.setIncorrectTime(cursor.isNull(offset + 7) ? null : cursor.getInt(offset + 7));
+        entity.setEFactor(cursor.isNull(offset + 8) ? null : cursor.getDouble(offset + 8));
+        entity.setInterval(cursor.isNull(offset + 9) ? null : cursor.getInt(offset + 9));
+        entity.setNextAppearTime(cursor.isNull(offset + 10) ? null : cursor.getInt(offset + 10));
      }
     
     @Override
