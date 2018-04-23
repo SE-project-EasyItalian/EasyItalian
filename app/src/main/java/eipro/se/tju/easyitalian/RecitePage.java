@@ -1,7 +1,6 @@
 package eipro.se.tju.easyitalian;
 
 import android.app.Activity;
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,13 +9,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -68,7 +65,7 @@ public class RecitePage extends Activity {
                 // my.queryForAppearTime   根据出现次数排序
                 // my.queryForCorrectTime  根据正确次数排序
                 // my.queryForIncorrectTime  根据错误次数排序
-                DaoOpt my =DaoOpt.Companion.getInstance();
+                DaoOpt my = DaoOpt.Companion.getInstance();
                 // Warning!!  java需要处理空指针
                 String testword = my.queryAll(getApplicationContext()).get(2).getExample();
                 //end

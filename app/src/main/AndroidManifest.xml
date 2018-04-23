@@ -31,6 +31,10 @@
         <activity android:name=".WordImformation" />
         <activity android:name=".Setting" />
         <activity android:name=".NewWords" />
+        <activity
+            android:name=".ReadActivity"
+            android:label="@string/title_activity_read"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
